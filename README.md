@@ -1,2 +1,2 @@
 # iot-labs
-SU - IoT Laboratories
+This repository contains all scripts developed for **IoT Laboratories** at Stockholm University (DSV).
