@@ -1,0 +1,13 @@
+1: Open the commandline in Raspberry pi copy them and paste them to run.
+
+echo 'KexAlgorithms +diffie-hellman-group14-sha1
+HostkeyAlgorithms +ssh-rsa
+PubkeyAcceptedAlgorithms +ssh-rsa
+MACs +hmac-sha1
+Ciphers +aes128-ctr,aes192-ctr,aes256-ctr' | sudo tee /etc/ssh/sshd_config.d/legacy.conf
+
+
+2: Check and reboot the ssh service.
+
+sudo sshd -t   # if no outputs, the setting is good enough
+sudo systemctl restart ssh
