@@ -28,3 +28,26 @@
 
     eg: my raspberry pi username is: iotlab2025 I want to running `trunon.py`, so i put script in `/home/iotlab2025`, also you can put script your in `~/` (The `~` means `/home/iotlab2025`), and then run method is like `run("python turnon.py")`
 
+4. The ssh.jar is very old version so Raspberry pi has not support it, please read the instructions below:
+
+
+(1). Open the commandline in Raspberry pi copy them and paste them to run.
+
+```bash 
+echo 'KexAlgorithms +diffie-hellman-group14-sha1
+
+HostkeyAlgorithms +ssh-rsa
+
+PubkeyAcceptedAlgorithms +ssh-rsa
+
+MACs +hmac-sha1
+
+Ciphers +aes128-ctr,aes192-ctr,aes256-ctr' | sudo tee /etc/ssh/sshd_config.d/legacy.conf
+```
+
+Rememeber to make sure use `\` while your command has multipul lines. 
+
+(2). Check and reboot the ssh service.
+
+`sudo sshd -t`   # if no outputs, the setting is good enough
+`sudo systemctl` #restart ssh
